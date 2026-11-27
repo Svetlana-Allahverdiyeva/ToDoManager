@@ -55,18 +55,3 @@ def removeTask(taskID):
         print("Task removed successfully!")
     else:
         print("Task not found!")
-
-
-# addTask("Learn Python")
-# addTask("Practice Stack")
-# addTask("Learn Queue")
-
-# showTasks()
-
-# updateTask(1, "Learn Advanced Python")
-
-# showTasks()
-
-# removeTask(2)
-
-# showTasks()
