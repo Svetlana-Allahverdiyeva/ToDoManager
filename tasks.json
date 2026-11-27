@@ -1,1 +1,27 @@
-[]
+[
+    {
+        "id": 1,
+        "name": "Learn Python",
+        "status": "Completed"
+    },
+    {
+        "id": 2,
+        "name": "Practice Git",
+        "status": "Pending"
+    },
+    {
+        "id": 4,
+        "name": "Read a book",
+        "status": "Pending"
+    },
+    {
+        "id": 5,
+        "name": "Learn English",
+        "status": "Pending"
+    },
+    {
+        "id": 6,
+        "name": "Practice coding",
+        "status": "Pending"
+    }
+]

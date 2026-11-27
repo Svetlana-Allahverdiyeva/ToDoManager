@@ -1,4 +1,4 @@
-from tasks import tasks, addTask, showTasks, findTask, updateTask, removeTask
+from tasks import *
 from stack import push, undo
 from queue import enqueue, dequeue, showQueue
 from linkedList import LinkedList
@@ -7,7 +7,7 @@ from menu import showMenu
 
 
 history = LinkedList()
-
+loadTasks()
 
 while True:
     showMenu()
@@ -66,9 +66,11 @@ while True:
             if completedTask:
                 completedTask["status"] = "Completed"
                 history.addHistory(completedTask)
+                saveTasks()
 
         elif choice == 7:
             undo(tasks)
+            saveTasks()
 
         elif choice == 8:
             history.showHistory()
