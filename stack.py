@@ -1,8 +1,14 @@
 stack = []
 
 
-def push(task):
-    stack.append(task.copy())
+def push(action, task, index=None):
+    operation = {
+        "action": action,
+        "task": task.copy(),
+        "index": index
+    }
+
+    stack.append(operation)
 
 
 def undo(tasks):
@@ -10,12 +16,30 @@ def undo(tasks):
         print("Undo history is empty!")
         return
 
-    lastTask = stack.pop()
+    lastOperation = stack.pop()
 
-    for task in tasks:
-        if task["id"] == lastTask["id"]:
-            tasks.remove(task)
-            print(f"Undo: {lastTask["name"]} deleted.")
-            return
+    action = lastOperation["action"]
+    taskData = lastOperation["task"]
 
-    print("Task was already deleted!")
+    if action == "add":
+        for task in tasks:
+            if task["id"] == taskData["id"]:
+                tasks.remove(task)
+                print("Add operation undone!")
+                return
+
+    elif action == "update":
+        for task in tasks:
+            if task["id"] == taskData["id"]:
+                task["name"] = taskData["name"]
+                task["status"] = taskData["status"]
+                print("Update operation undone!")
+                return
+
+    elif action == "remove":
+        index = lastOperation["index"]
+        tasks.insert(index, taskData)
+        print("Remove operation undone!")
+        return
+
+    print("Task not found!")

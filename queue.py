@@ -13,7 +13,7 @@ def dequeue():
 
     task = queue.pop(0)
     print(f"Task completed: {task['name']}")
-
+    return task
 
 def showQueue():
     if not queue:
