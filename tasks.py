@@ -23,9 +23,10 @@ def showTasks():
         return
 
     for task in tasks:
-        print(f"ID: {task["id"]}")
-        print(f"Name: {task["name"]}")
-        print(f"Status: {task["status"]}")
+        print(f"ID: {task['id']}")
+        print(f"Name: {task['name']}")
+        print(f"Status: {task['status']}")
+        print("-" * 30)
 
 
 def findTask(taskID):
@@ -54,3 +55,18 @@ def removeTask(taskID):
         print("Task removed successfully!")
     else:
         print("Task not found!")
+
+
+# addTask("Learn Python")
+# addTask("Practice Stack")
+# addTask("Learn Queue")
+
+# showTasks()
+
+# updateTask(1, "Learn Advanced Python")
+
+# showTasks()
+
+# removeTask(2)
+
+# showTasks()
