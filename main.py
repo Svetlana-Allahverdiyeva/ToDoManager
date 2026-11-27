@@ -5,6 +5,7 @@ from linkedList import LinkedList
 from menu import showMenu
 
 
+
 history = LinkedList()
 
 
@@ -21,16 +22,31 @@ while True:
             addTask(name)
 
             if tasks:
-                push(tasks[-1])
+                push("add", tasks[-1])
 
         elif choice == 2:
             taskID = int(input("Enter task ID: "))
             taskName = input("Enter new task name: ")
-            updateTask(taskID, taskName)
+
+            task = findTask(taskID)
+
+            if task:
+                push("update", task)
+                updateTask(taskID, taskName)
+            else:
+                print("Task not found!")
 
         elif choice == 3:
             taskID = int(input("Enter task ID: "))
-            removeTask(taskID)
+
+            task = findTask(taskID)
+
+            if task:
+                index = tasks.index(task)
+                push("remove", task, index)
+                removeTask(taskID)
+            else:
+                print("Task not found!")
 
         elif choice == 4:
             showTasks()
